@@ -1,0 +1,443 @@
+/* --- VARIABLES Y RESET --- */
+:root {
+    --bg-principal: #0c0404; /* Negro rojizo muy profundo */
+    --bg-secundario: #160808; /* Tarjetas: Un tono rojizo sutilmente más claro */
+    --texto-principal: #ffffff; /* Blanco puro para máxima legibilidad */
+    --texto-secundario: #a39898; /* Gris cálido para no cansar la vista */
+    --acento: #ef4444; /* Rojo vibrante tech */
+    --acento-hover: #dc2626;
+    --borde: #301010; /* Bordes en rojo oscuro */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    line-height: 1.6;
+}
+
+/* --- HEADER / NAV RESPONSIVE --- */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(12, 4, 4, 0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--borde);
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--texto-principal);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--acento);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--texto-secundario);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--acento);
+}
+
+/* --- ESTILOS GENERALES DE SECCIÓN --- */
+section {
+    padding: 6rem 2rem 4rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.titulo-seccion {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.titulo-seccion::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 50%;
+    height: 3px;
+    background-color: var(--acento);
+    border-radius: 2px;
+}
+
+/* --- SOBRE MÍ --- */
+.sobre-mi-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    min-height: 75vh;
+    padding-top: 4rem;
+}
+
+.sobre-mi-texto {
+    flex: 1;
+}
+
+.hero-sub {
+    color: var(--acento);
+    font-size: 1.1rem;
+    font-family: monospace;
+    margin-bottom: 0.5rem;
+}
+
+.hero-titulo {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.hero-descripcion {
+    color: var(--texto-secundario);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+}
+
+.btn-cta {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--acento);
+    border: 1px solid var(--acento);
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-cta:hover {
+    background-color: rgba(56, 189, 248, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Contenedor de la Foto de Perfil */
+.sobre-mi-foto-wrapper {
+    flex: 0 0 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.sobre-mi-foto-marco {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    border-radius: 12px;
+}
+
+.sobre-mi-foto-marco::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--acento);
+    border-radius: 12px;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.sobre-mi-foto-marco:hover::after {
+    top: 8px;
+    left: 8px;
+}
+
+.sobre-mi-foto-marco img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    position: relative;
+    z-index: 2;
+    background-color: var(--bg-secundario);
+    border: 1px solid var(--borde);
+    filter: grayscale(20%);
+    transition: filter 0.3s ease;
+}
+
+.sobre-mi-foto-marco:hover img {
+    filter: grayscale(0%);
+}
+
+/* --- LENGUAJES DE PROGRAMACIÓN --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-card {
+    background-color: var(--bg-secundario);
+    border: 1px solid var(--borde);
+    padding: 1.5rem;
+    border-radius: 6px;
+    text-align: center;
+    font-family: monospace;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--acento);
+}
+
+.skill-card img {
+    width: 50px;
+    height: 40px;
+}
+
+/* --- PROYECTOS --- */
+.proyectos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.proyecto-card {
+    background-color: var(--bg-secundario);
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s;
+}
+
+.proyecto-card:hover {
+    transform: translateY(-5px);
+}
+
+.proyecto-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.proyecto-titulo {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+}
+
+.proyecto-desc {
+    color: var(--texto-secundario);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.proyecto-tech {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--acento);
+}
+
+/* --- EVENTOS --- */
+.eventos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.evento-card {
+    background-color: var(--bg-secundario);
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.evento-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--acento);
+}
+
+.evento-contenedor-img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #0c0404;
+}
+
+.evento-contenedor-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.evento-card:hover .evento-contenedor-img img {
+    transform: scale(1.05);
+}
+
+.evento-info {
+    padding: 1.5rem;
+}
+
+.evento-tag {
+    display: inline-block;
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: var(--acento);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.evento-titulo {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.evento-desc {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+}
+
+/* --- CERTIFICACIONES --- */
+.cert-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cert-item {
+    background-color: var(--bg-secundario);
+    border-left: 4px solid var(--acento);
+    padding: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 6px 6px 0;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cert-item:hover {
+    transform: translateY(-5px); /* Levanta el elemento 5 píxeles */
+}
+
+.cert-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.cert-info p {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+}
+
+.cert-fecha {
+    font-family: monospace;
+    color: var(--acento);
+    font-size: 0.9rem;
+}
+
+footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--borde);
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+    .sobre-mi-container {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 2rem;
+        padding-top: 6rem;
+    }
+
+    .hero-titulo {
+        font-size: 2.5rem;
+    }
+
+    .sobre-mi-foto-wrapper {
+        flex: initial;
+    }
+
+    .sobre-mi-foto-marco::after {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        position: absolute;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    section {
+        padding: 4rem 1.2rem 2rem 1.2rem;
+    }
+
+    .hero-titulo {
+        font-size: 2rem;
+    }
+
+    .sobre-mi-foto-marco {
+        width: 200px;
+        height: 200px;
+    }
+
+    .cert-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+}
