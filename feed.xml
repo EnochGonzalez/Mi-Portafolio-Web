@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>SEGOPE.dev</title>
+    <link>https://santosgonzalez.dev/index.html</link>
+    <description>Bitácora de desarrollo de Santos Enoch González Pérez</description>
+    <language>es-mx</language>
+    <lastBuildDate>Wed, 15 Jul 2026 09:00:00 -0000</lastBuildDate>
+    <item>
+      <title>LawPocket: gestión legal en la nube</title>
+      <link>https://santosgonzalez.dev/HTML/LawPocket.html</link>
+      <guid>https://santosgonzalez.dev/HTML/LawPocket.html</guid>
+      <pubDate>Wed, 15 Jul 2026 09:00:00 -0000</pubDate>
+      <description><![CDATA[Sistema de gestión legal para digitalizar el control de casos de un despacho, con paneles diferenciados por rol.]]></description>
+      <category>LawPocket</category>
+    </item>
+    <item>
+      <title>Math &amp; English Quest</title>
+      <link>https://santosgonzalez.dev/HTML/MathEnglishQuest.html</link>
+      <guid>https://santosgonzalez.dev/HTML/MathEnglishQuest.html</guid>
+      <pubDate>Sat, 20 Jun 2026 09:00:00 -0000</pubDate>
+      <description><![CDATA[App educativa para que niños de primaria practiquen matemáticas e inglés con un sistema de dado, vidas y rachas.]]></description>
+      <category>Android</category>
+    </item>
+    <item>
+      <title>Series de Taylor con Canvas</title>
+      <link>https://santosgonzalez.dev/HTML/SeriesTaylor.html</link>
+      <guid>https://santosgonzalez.dev/HTML/SeriesTaylor.html</guid>
+      <pubDate>Sun, 10 May 2026 09:00:00 -0000</pubDate>
+      <description><![CDATA[Visualización de cómo un polinomio de Taylor se aproxima a una función real, hecha para la clase de Cálculo.]]></description>
+      <category>Cálculo</category>
+    </item>
+  </channel>
+</rss>
