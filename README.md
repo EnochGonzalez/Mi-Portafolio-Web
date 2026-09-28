@@ -1,9 +1,5 @@
 # SEGOPE.dev — Blog Dev de Santos González
 
-Blog estático optimizado para SEO. Cada página es un módulo independiente:
-su propio HTML, su propio CSS y su propio JS, sin un archivo gigante
-compartido que haya que rastrear.
-
 ## Estructura de carpetas
 
 ```
@@ -27,12 +23,4 @@ BlogDev/
 │   ├── MathEnglishQuest.js
 │   └── SeriesTaylor.js
 ├── Imagenes/
-├── sitemap.xml, robots.txt, feed.xml   → Se quedan en la raíz (SEO)
 ```
-
-## Antes de publicar
-
-Cambia `BASE_URL` en `build_site.py` (ahora `https://santosgonzalez.dev`,
-un marcador de posición) por tu dominio real si vas a publicarlo — de eso
-depende que el `canonical`, el `sitemap.xml` y el `feed.xml` apunten al
-lugar correcto.
