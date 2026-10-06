@@ -135,8 +135,9 @@ body { overflow-wrap: break-word; -webkit-text-size-adjust: 100%; }
 }
 
 /* ===== Propio de Inicio: masthead, buscador, lista de artículos, sidebar ===== */
-.masthead {
-  padding: 3.5rem 1.5rem 2.5rem; max-width: 1180px; margin: 0 auto;
+.masthead { position: relative; isolation: isolate; padding: 3.5rem 1.5rem 2.5rem; max-width: 1180px; margin: 0 auto; }
+.masthead::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
   background-image:
     linear-gradient(var(--line) 1px, transparent 1px),
     linear-gradient(90deg, var(--line) 1px, transparent 1px);
@@ -147,7 +148,11 @@ body { overflow-wrap: break-word; -webkit-text-size-adjust: 100%; }
 .masthead__eyebrow { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); margin-bottom: 0.75rem; }
 .masthead h1 { font-size: clamp(2.1rem, 4vw, 3.1rem); font-weight: 600; line-height: 1.2; max-width: 20ch; margin-bottom: 1rem; }
 .masthead__lede { color: var(--ink-soft); font-size: 1.1rem; max-width: 56ch; margin-bottom: 1.5rem; }
-.masthead__meta { display: flex; align-items: center; gap: 0.9rem; font-family: var(--font-mono); font-size: 0.85rem; color: var(--ink-soft); }
+.masthead__meta { display: flex; align-items: center; gap: 1.1rem; margin-top: 0.25rem; }
+.masthead .avatar { width: 4rem; height: 4rem; border-width: 2px; }
+.masthead__author { display: flex; flex-direction: column; gap: 0.2rem; font-family: var(--font-mono); }
+.masthead__name { font-size: 1.1rem; font-weight: 600; line-height: 1.3; color: var(--ink); }
+.masthead__count { font-size: 0.9rem; line-height: 1.5; color: var(--ink-soft); }
 
 .filter-bar {
   display: flex; flex-wrap: wrap; align-items: center; gap: 1rem;
@@ -218,6 +223,9 @@ body { overflow-wrap: break-word; -webkit-text-size-adjust: 100%; }
   transition: border-color 0.2s, transform 0.2s;
 }
 .cert-mini-list li:hover { border-color: var(--accent); transform: translateX(3px); }
+.cert-mini-list .cert-link { display: block; color: inherit; text-decoration: none; transition: color 0.2s; }
+.cert-mini-list .cert-link:hover { color: var(--accent); }
+.widget-hint { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-soft); margin: -0.3rem 0 1rem; }
 .cert-mini-list .cert-mini-date { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-soft); margin-top: 0.15rem; }
 
 @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
@@ -225,7 +233,9 @@ body { overflow-wrap: break-word; -webkit-text-size-adjust: 100%; }
   .masthead { padding: 2.25rem 1.25rem 1.75rem; }
   .masthead h1 { max-width: none; line-height: 1.25; margin-bottom: 1.1rem; }
   .masthead__lede { font-size: 1rem; line-height: 1.75; margin-bottom: 1.4rem; }
-  .masthead__meta { flex-wrap: wrap; line-height: 1.7; }
+  .masthead__meta { gap: 0.9rem; }
+  .masthead .avatar { width: 3.5rem; height: 3.5rem; }
+  .masthead__name { font-size: 1.05rem; }
   .filter-bar { padding: 1rem 1.25rem; }
   .content-grid { padding: 1.75rem 1.25rem 3rem; }
 
@@ -247,3 +257,54 @@ body { overflow-wrap: break-word; -webkit-text-size-adjust: 100%; }
 }
 
 @media print { .site-header, .filter-bar, .sidebar, .back-to-top, .site-footer { display: none; } }
+
+/* ===== Certificado en pantalla (modal) ===== */
+.cert-modal {
+  width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; padding: 1rem;
+  border: 0; background: transparent; color: var(--ink); overflow: hidden;
+}
+.cert-modal[open] { display: grid; place-items: center; animation: certFade 0.25s ease; }
+.cert-modal::backdrop { background: rgba(12, 4, 4, 0.9); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.cert-modal__panel {
+  width: min(100%, 980px); max-height: calc(100vh - 2rem); max-height: calc(100dvh - 2rem);
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--bg-elevated); border: 1px solid var(--line-strong); border-radius: var(--radius);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+.cert-modal__header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.85rem 1rem; border-bottom: 1px solid var(--line); }
+.cert-modal__title { font-family: var(--font-mono); font-size: 0.9rem; font-weight: 600; line-height: 1.5; }
+.cert-modal__close {
+  flex: none; width: 2.4rem; height: 2.4rem; border-radius: 50%; cursor: pointer;
+  background: none; border: 1px solid var(--line-strong); color: var(--ink); font-size: 1.5rem; line-height: 1;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.cert-modal__close:hover { border-color: var(--accent); transform: rotate(90deg); }
+.cert-modal__body { padding: 1rem; overflow: auto; min-height: 0; }
+.cert-modal__img {
+  display: block; margin: 0 auto; width: auto; height: auto; max-width: 100%;
+  max-height: calc(100vh - 12rem); max-height: calc(100dvh - 12rem);
+  background: #fff; border-radius: 2px; cursor: zoom-in;
+}
+.cert-modal__img.is-zoomed { max-width: none; max-height: none; width: 220%; cursor: zoom-out; }
+.cert-modal__footer {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem 1rem;
+  padding: 0.85rem 1rem; border-top: 1px solid var(--line);
+  font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-soft);
+}
+.cert-modal__pdf {
+  color: var(--accent); text-decoration: none; border: 1px solid var(--accent);
+  padding: 0.5rem 0.9rem; border-radius: var(--radius);
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.cert-modal__pdf:hover { background: var(--accent); color: var(--bg); transform: translateY(-2px); }
+@keyframes certFade { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 720px) {
+  .cert-modal { padding: 0.5rem; }
+  .cert-modal__panel { max-height: calc(100vh - 1rem); max-height: calc(100dvh - 1rem); }
+  .cert-modal__header, .cert-modal__footer { padding: 0.75rem; }
+  .cert-modal__body { padding: 0.5rem; }
+  .cert-modal__img { max-height: calc(100vh - 11rem); max-height: calc(100dvh - 11rem); }
+  .cert-modal__pdf { flex: 1 1 100%; text-align: center; padding: 0.7rem 0.9rem; }
+}
+@media (hover: none) { .cert-modal__close:hover, .cert-modal__pdf:hover { transform: none; } }

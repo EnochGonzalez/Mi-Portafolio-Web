@@ -53,7 +53,7 @@
 
     <section class="section-block">
       <h2>Certificaciones</h2>
-      <ul class="timeline"><li><span class="t-date">16/03/2026</span><div><h3>Operating Systems Support</h3><p>Cisco Networking Academy</p></div></li><li><span class="t-date">26/10/2025</span><div><h3>AWS Academy Graduate — Cloud Foundations</h3><p>Amazon Web Services (AWS)</p></div></li><li><span class="t-date">26/10/2025</span><div><h3>Networking Basics</h3><p>Cisco Networking Academy</p></div></li><li><span class="t-date">25/10/2025</span><div><h3>Curso Profesional de Desarrollo en C++</h3><p>Azul School</p></div></li></ul>
+      <ul class="timeline"><li><a class="cert-link" href="PDF/OperatingSystemsSupport.pdf" target="_blank" rel="noopener" data-cert-title="Operating Systems Support" data-cert-org="Cisco Networking Academy" data-cert-img="Imagenes/Certificados/OperatingSystemsSupport.jpg"><span class="t-date">16/03/2026</span><div><h3>Operating Systems Support</h3><p>Cisco Networking Academy</p></div><span class="cert-cta" aria-hidden="true">Ver certificado</span></a></li><li><a class="cert-link" href="PDF/InternetOfThings.pdf" target="_blank" rel="noopener" data-cert-title="Introduction to Internet of Things" data-cert-org="Cisco Networking Academy" data-cert-img="Imagenes/Certificados/InternetOfThings.jpg"><span class="t-date">01/12/2025</span><div><h3>Introduction to Internet of Things</h3><p>Cisco Networking Academy</p></div><span class="cert-cta" aria-hidden="true">Ver certificado</span></a></li><li><a class="cert-link" href="PDF/AWSCloudFoundations.pdf" target="_blank" rel="noopener" data-cert-title="AWS Academy Graduate — Cloud Foundations" data-cert-org="Amazon Web Services (AWS)" data-cert-img="Imagenes/Certificados/AWSCloudFoundations.jpg"><span class="t-date">26/10/2025</span><div><h3>AWS Academy Graduate — Cloud Foundations</h3><p>Amazon Web Services (AWS)</p></div><span class="cert-cta" aria-hidden="true">Ver certificado</span></a></li><li><a class="cert-link" href="PDF/NetworkingBasics.pdf" target="_blank" rel="noopener" data-cert-title="Networking Basics" data-cert-org="Cisco Networking Academy" data-cert-img="Imagenes/Certificados/NetworkingBasics.jpg"><span class="t-date">26/10/2025</span><div><h3>Networking Basics</h3><p>Cisco Networking Academy</p></div><span class="cert-cta" aria-hidden="true">Ver certificado</span></a></li><li><a class="cert-link" href="PDF/CursoCpp.pdf" target="_blank" rel="noopener" data-cert-title="Curso Profesional de Desarrollo en C++" data-cert-org="Azul School" data-cert-img="Imagenes/Certificados/CursoCpp.jpg"><span class="t-date">25/10/2025</span><div><h3>Curso Profesional de Desarrollo en C++</h3><p>Azul School</p></div><span class="cert-cta" aria-hidden="true">Ver certificado</span></a></li></ul>
     </section>
 
     <section class="section-block contact-block">
@@ -61,8 +61,25 @@
       <p>¿Quieres platicar sobre alguno de estos proyectos? Puedes contactarme por:</p>
       <p>Correo: <a class="button-link" href="mailto:253390@it2id.upchiapas.edu.mx">253390@it2id.upchiapas.edu.mx</a></p>
       <p>Teléfono: <a class="button-link" href="tel:+529601177755">960-117-7755</a></p>
+      <p>GitHub: <a class="button-link" href="https://github.com/EnochGonzalez" target="_blank" rel="noopener noreferrer">github.com/EnochGonzalez</a></p>
     </section>
   </main>
+
+  <dialog class="cert-modal" id="cert-modal" aria-labelledby="cert-modal-title">
+    <div class="cert-modal__panel">
+      <header class="cert-modal__header">
+        <h2 class="cert-modal__title" id="cert-modal-title">Certificado</h2>
+        <button type="button" class="cert-modal__close" aria-label="Cerrar certificado">×</button>
+      </header>
+      <div class="cert-modal__body">
+        <img class="cert-modal__img" id="cert-modal-img" alt="">
+      </div>
+      <footer class="cert-modal__footer">
+        <span class="cert-modal__hint">Toca la imagen para ampliar</span>
+        <a class="cert-modal__pdf" id="cert-modal-pdf" href="#" target="_blank" rel="noopener">Abrir PDF</a>
+      </footer>
+    </div>
+  </dialog>
 
   <footer class="site-footer">
     <div class="footer-inner">
@@ -70,6 +87,7 @@
       <nav class="footer-links" aria-label="Enlaces del pie de página">
         <a href="about.html">Acerca del autor</a>
         <a href="mailto:253390@it2id.upchiapas.edu.mx">Contacto</a>
+        <a href="https://github.com/EnochGonzalez" target="_blank" rel="noopener noreferrer">GitHub</a>
       </nav>
     </div>
   </footer>

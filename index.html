@@ -43,8 +43,11 @@
       <h1>Notas breves sobre mis proyectos y lo que aprendo en el camino.</h1>
       <p class="masthead__lede">Soy estudiante de Ingeniería en Desarrollo de Software. Aquí resumo LawPocket, Math &amp; English Quest y otros proyectos de clase.</p>
       <div class="masthead__meta">
-        <img class="avatar" src="Imagenes/Santos.jpeg" alt="Foto de Santos Enoch González Pérez" width="37" height="37">
-        <span>Santos Enoch González Pérez · 3 artículos publicados</span>
+        <img class="avatar" src="Imagenes/Santos.jpeg" alt="Foto de Santos Enoch González Pérez" width="64" height="64">
+        <div class="masthead__author">
+          <strong class="masthead__name">Santos Enoch González Pérez</strong>
+          <span class="masthead__count">3 artículos publicados</span>
+        </div>
       </div>
     </section>
 
@@ -112,11 +115,28 @@
         </div>
         <div class="widget">
           <h3>Certificaciones recientes</h3>
-          <ul class="cert-mini-list"><li>Operating Systems Support<span class="cert-mini-date">Cisco Networking Academy · 16/03/2026</span></li><li>AWS Academy Graduate — Cloud Foundations<span class="cert-mini-date">Amazon Web Services (AWS) · 26/10/2025</span></li><li>Networking Basics<span class="cert-mini-date">Cisco Networking Academy · 26/10/2025</span></li></ul>
+          <p class="widget-hint">Toca uno para ver el certificado.</p>
+          <ul class="cert-mini-list"><li><a class="cert-link" href="PDF/OperatingSystemsSupport.pdf" target="_blank" rel="noopener" data-cert-title="Operating Systems Support" data-cert-org="Cisco Networking Academy" data-cert-img="Imagenes/Certificados/OperatingSystemsSupport.jpg">Operating Systems Support<span class="cert-mini-date">Cisco Networking Academy · 16/03/2026</span></a></li><li><a class="cert-link" href="PDF/InternetOfThings.pdf" target="_blank" rel="noopener" data-cert-title="Introduction to Internet of Things" data-cert-org="Cisco Networking Academy" data-cert-img="Imagenes/Certificados/InternetOfThings.jpg">Introduction to Internet of Things<span class="cert-mini-date">Cisco Networking Academy · 01/12/2025</span></a></li><li><a class="cert-link" href="PDF/AWSCloudFoundations.pdf" target="_blank" rel="noopener" data-cert-title="AWS Academy Graduate — Cloud Foundations" data-cert-org="Amazon Web Services (AWS)" data-cert-img="Imagenes/Certificados/AWSCloudFoundations.jpg">AWS Academy Graduate — Cloud Foundations<span class="cert-mini-date">Amazon Web Services (AWS) · 26/10/2025</span></a></li></ul>
         </div>
       </aside>
     </div>
   </main>
+
+  <dialog class="cert-modal" id="cert-modal" aria-labelledby="cert-modal-title">
+    <div class="cert-modal__panel">
+      <header class="cert-modal__header">
+        <h2 class="cert-modal__title" id="cert-modal-title">Certificado</h2>
+        <button type="button" class="cert-modal__close" aria-label="Cerrar certificado">×</button>
+      </header>
+      <div class="cert-modal__body">
+        <img class="cert-modal__img" id="cert-modal-img" alt="">
+      </div>
+      <footer class="cert-modal__footer">
+        <span class="cert-modal__hint">Toca la imagen para ampliar</span>
+        <a class="cert-modal__pdf" id="cert-modal-pdf" href="#" target="_blank" rel="noopener">Abrir PDF</a>
+      </footer>
+    </div>
+  </dialog>
 
   <footer class="site-footer">
     <div class="footer-inner">
@@ -124,6 +144,7 @@
       <nav class="footer-links" aria-label="Enlaces del pie de página">
         <a href="about.html">Acerca del autor</a>
         <a href="mailto:253390@it2id.upchiapas.edu.mx">Contacto</a>
+        <a href="https://github.com/EnochGonzalez" target="_blank" rel="noopener noreferrer">GitHub</a>
       </nav>
     </div>
   </footer>

@@ -37,8 +37,46 @@ function showToast(message) {
   toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 1800);
 }
 
-/* ===== Propio de Acerca: por ahora solo usa el comportamiento base ===== */
+/* ===== Propio de Acerca ===== */
+/* ===== Certificados: abrir el certificado en pantalla (modal) ===== */
+function initCertModal() {
+  var modal = document.getElementById('cert-modal');
+  var links = document.querySelectorAll('.cert-link');
+  if (!modal || !links.length || typeof modal.showModal !== 'function') return;
+
+  var title = document.getElementById('cert-modal-title');
+  var img = document.getElementById('cert-modal-img');
+  var pdf = document.getElementById('cert-modal-pdf');
+
+  function openCert(link) {
+    var name = link.getAttribute('data-cert-title');
+    var org = link.getAttribute('data-cert-org');
+    title.textContent = name + ' · ' + org;
+    img.classList.remove('is-zoomed');
+    img.src = link.getAttribute('data-cert-img');
+    img.alt = 'Certificado de ' + name + ' (' + org + ')';
+    pdf.href = link.getAttribute('href');
+    document.body.style.overflow = 'hidden';
+    modal.showModal();
+  }
+
+  links.forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      // Con Ctrl/Cmd/Shift se deja abrir el PDF normalmente en otra pestaña
+      if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      e.preventDefault();
+      openCert(link);
+    });
+  });
+
+  modal.querySelector('.cert-modal__close').addEventListener('click', function () { modal.close(); });
+  modal.addEventListener('click', function (e) { if (e.target === modal) modal.close(); });
+  img.addEventListener('click', function () { img.classList.toggle('is-zoomed'); });
+  modal.addEventListener('close', function () { document.body.style.overflow = ''; });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   initMobileNav();
   initBackToTop();
+  initCertModal();
 });
