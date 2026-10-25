@@ -3,3 +3,4 @@ README.md
 __pycache__/
 .pytest_cache/
 *.pyc
+generador/LEEME.md

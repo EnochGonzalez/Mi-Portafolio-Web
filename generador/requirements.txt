@@ -1,4 +1,3 @@
-# Librerías del generador del blog (mismas que usaste en la práctica: httpx y pytest, más Jinja2 para las plantillas)
-jinja2
-httpx
-pytest
+# Lo que necesita el generador para construir el blog (también lo instala Vercel). Versiones con las que se probó.
+jinja2==3.1.6
+httpx==0.28.1

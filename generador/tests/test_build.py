@@ -85,3 +85,36 @@ def test_el_dominio_sale_del_argumento_sitio(blog, contenido):
     cms_api.guardar_instantanea(contenido, blog / "datos" / "contenido.json")
     build.main(["--sitio", "https://otro.ejemplo.com/"], raiz=blog)
     assert 'rel="canonical" href="https://otro.ejemplo.com/index.html"' in (blog / "index.html").read_text(encoding="utf-8")
+
+
+# ------------------------------------------------------------------ protección contra publicar un blog vacío
+def _sin_proyectos(contenido):
+    return {**contenido, "proyectos": []}
+
+
+def test_si_la_api_responde_vacia_pero_la_copia_tenia_proyectos_no_se_genera_nada(blog, contenido, capsys):
+    cms_api.guardar_instantanea(contenido, blog / "datos" / "contenido.json")
+    correr(blog)                                                      # el blog bueno, ya generado
+    bueno = (blog / "index.html").read_text(encoding="utf-8")
+    assert correr(blog, "--api", "http://api.prueba", cliente=cliente_falso(_sin_proyectos(contenido))) == 1
+    error = capsys.readouterr().err
+    assert "no devolvió ningún proyecto" in error and "--permitir-vacio" in error
+    assert (blog / "index.html").read_text(encoding="utf-8") == bueno                       # el blog no se tocó
+    assert len(json.loads((blog / "datos" / "contenido.json").read_text(encoding="utf-8"))["proyectos"]) == 3   # ni la copia
+
+
+def test_con_permitir_vacio_se_acepta_un_blog_sin_proyectos(blog, contenido):
+    cms_api.guardar_instantanea(contenido, blog / "datos" / "contenido.json")
+    assert correr(blog, "--api", "http://api.prueba", "--permitir-vacio", cliente=cliente_falso(_sin_proyectos(contenido))) == 0
+    assert "0 artículos publicados" in (blog / "index.html").read_text(encoding="utf-8")
+
+
+def test_la_primera_vez_sin_copia_previa_un_blog_vacio_es_normal(blog, contenido):
+    assert correr(blog, "--api", "http://api.prueba", cliente=cliente_falso(_sin_proyectos(contenido))) == 0
+    assert (blog / "index.html").is_file()
+
+
+def test_una_copia_previa_dañada_no_impide_generar(blog, contenido):
+    (blog / "datos").mkdir()
+    (blog / "datos" / "contenido.json").write_text("{esto no es json", encoding="utf-8")
+    assert correr(blog, "--api", "http://api.prueba", cliente=cliente_falso(contenido)) == 0

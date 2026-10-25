@@ -1,0 +1,3 @@
+# Para correr las pruebas en tu computadora: python -m pip install -r generador\requirements-pruebas.txt
+-r requirements.txt
+pytest
