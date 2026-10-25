@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block inicio_cuerpo %}
+  <div class="progress-bar"></div>
+  {% for dato in ld_proyecto %}
+  <script type="application/ld+json">{{ dato | json_ld }}</script>
+  {% endfor %}
+{% endblock %}
+{% block principal %}
+    <header class="article-header">
+      <nav class="breadcrumbs" aria-label="Ruta de navegación">
+        <a href="{{ prefijo }}index.html">Inicio</a> / <a href="{{ prefijo }}index.html#articulos">Artículos</a> / <span>{{ p.titulo }}</span>
+      </nav>
+      {% if p.etiquetas %}
+      <p class="tag-line">{{ p.etiquetas | join(' · ') }}</p>
+      {% endif %}
+      <h1>{{ p.titulo }}</h1>
+      <div class="byline">
+        {% if perfil.foto %}
+        <img class="avatar" src="{{ perfil.foto }}" alt="Foto de {{ perfil.nombre }}" width="37" height="37">
+        {% endif %}
+        <span><strong>{{ perfil.nombre }}</strong> · <time datetime="{{ p.fecha_iso }}">{{ p.fecha_larga }}</time> · <span>{{ p.minutos }} min de lectura</span></span>
+      </div>
+    </header>
+
+    <article class="post-body">
+        <p>{{ p.descripcion }}</p>
+        <ul>
+          <li><strong>Lenguajes:</strong> {{ p.lenguajes | join(', ') }}</li>
+          {% if p.tecnologias %}
+          <li><strong>Tecnologías:</strong> {{ p.tecnologias | join(', ') }}</li>
+          {% endif %}
+        </ul>
+        {% if p.demo_url %}
+        <a class="project-link" href="{{ p.demo_url }}" target="_blank" rel="noopener noreferrer">{{ ajustes.texto_boton_proyecto }} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+        {% endif %}
+        {% if p.repo_url %}
+        <a class="project-link" href="{{ p.repo_url }}" target="_blank" rel="noopener noreferrer">Ver código <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+        {% endif %}
+
+      <div class="post-tags">{% for etiqueta in p.etiquetas %}<span class="tag">{{ etiqueta }}</span>{% endfor %}</div>
+
+      <div class="share-row">
+        <button id="copy-link" data-copy-url="{{ url_copiar }}">{{ texto_copiar }}</button>
+      </div>
+    </article>
+
+    <nav class="article-nav" aria-label="Navegación entre artículos">
+      {% if anterior %}
+      <div class="prev"><span>Anterior</span><a href="{{ anterior.slug }}.html">{{ anterior.titulo }}</a></div>
+      {% else %}
+      <div></div>
+      {% endif %}
+      {% if siguiente %}
+      <div class="next"><span>Siguiente</span><a href="{{ siguiente.slug }}.html">{{ siguiente.titulo }}</a></div>
+      {% endif %}
+    </nav>
+{% endblock %}

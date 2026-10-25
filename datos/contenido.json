@@ -1,0 +1,314 @@
+{
+  "generado_en": "2026-10-25T03:11:44Z",
+  "fuente": "http://localhost:8000",
+  "perfil": {
+    "profile_id": "01a1710a-e1fe-7669-9f80-15761259a504",
+    "full_name": "Santos Enoch González Pérez",
+    "job_title": "Estudiante de Ingeniería en Desarrollo de Software",
+    "tagline": "Estudiante de Ingeniería en Desarrollo de Software, enfocado en aplicaciones web y móviles.",
+    "bio": "Estudiante de Ingeniería en Desarrollo de Software, especializado en crear aplicaciones robustas, eficientes y centradas en el usuario. Me apasiona resolver problemas complejos y diseñar videojuegos.",
+    "photo_url": "https://santosgonzalez.dev/Imagenes/Santos.jpeg",
+    "email": "253390@it2id.upchiapas.edu.mx",
+    "phone": "960-117-7755",
+    "github_url": "https://github.com/EnochGonzalez",
+    "updated_at": "2026-10-25T03:11:41Z"
+  },
+  "proyectos": [
+    {
+      "project_id": "01a1710a-e200-72ca-bbbb-74db29258b58",
+      "title": "LawPocket: gestión legal en la nube",
+      "slug": "lawpocket",
+      "short_description": "Sistema de gestión legal para digitalizar el control de casos de un despacho, con paneles diferenciados por rol.",
+      "project_date": "2026-07-15",
+      "tags": [
+        "LawPocket",
+        "Proyecto Integrador"
+      ],
+      "tech_stack": [
+        {
+          "stack_id": "01a1710a-e201-7b57-b463-379b855225e7",
+          "name": "Java",
+          "category": "LENGUAJE"
+        },
+        {
+          "stack_id": "01a1710a-e201-7fcf-bce4-77df1df8ea84",
+          "name": "SQL",
+          "category": "LENGUAJE"
+        },
+        {
+          "stack_id": "01a1710a-e201-7bd7-a854-ef0abcb4261f",
+          "name": "Figma Site",
+          "category": "HERRAMIENTA"
+        },
+        {
+          "stack_id": "01a1710a-e201-7740-bc71-e0036fcbe2a7",
+          "name": "AWS (EC2)",
+          "category": "NUBE"
+        },
+        {
+          "stack_id": "01a1710a-e201-7bae-9ee5-baebe3e2a1a1",
+          "name": "MariaDB",
+          "category": "BASE_DE_DATOS"
+        },
+        {
+          "stack_id": "01a1710a-e201-720f-a5c1-a1d5b65216f2",
+          "name": "Postman",
+          "category": "HERRAMIENTA"
+        }
+      ],
+      "repo_url": null,
+      "demo_url": "https://law-pocket-integrador.vercel.app",
+      "is_featured": false,
+      "published_at": "2026-07-15T12:00:00Z",
+      "description": "Aplicación web para que un despacho legal digitalice el control de sus casos, con un panel de administrador y otro de abogado/asistente para gestionar clientes y expedientes."
+    },
+    {
+      "project_id": "01a1710a-e200-7ab9-bdf5-f2cf0c5bfee0",
+      "title": "Math & English Quest",
+      "slug": "math-english-quest",
+      "short_description": "App educativa para que niños de primaria practiquen matemáticas e inglés con un sistema de dado, vidas y rachas.",
+      "project_date": "2026-06-20",
+      "tags": [
+        "Android",
+        "Proyecto personal"
+      ],
+      "tech_stack": [
+        {
+          "stack_id": "01a1710a-e201-7bb6-a776-2ab2dc63f6b2",
+          "name": "JavaScript",
+          "category": "LENGUAJE"
+        },
+        {
+          "stack_id": "01a1710a-e201-7b7f-89ed-40338fca09e0",
+          "name": "Kotlin",
+          "category": "LENGUAJE"
+        },
+        {
+          "stack_id": "01a1710a-e201-7d74-b246-fd9d8af9a167",
+          "name": "Android Studio",
+          "category": "HERRAMIENTA"
+        },
+        {
+          "stack_id": "01a1710a-e201-73e7-b12b-269ebea20176",
+          "name": "Room",
+          "category": "FRAMEWORK"
+        },
+        {
+          "stack_id": "01a1710a-e201-7200-b9a4-722647750bf8",
+          "name": "SharedPreferences",
+          "category": "FRAMEWORK"
+        },
+        {
+          "stack_id": "01a1710a-e201-7344-a92b-dfbe9107d59a",
+          "name": "TextToSpeech",
+          "category": "FRAMEWORK"
+        }
+      ],
+      "repo_url": null,
+      "demo_url": "https://math-english-quest.vercel.app",
+      "is_featured": false,
+      "published_at": "2026-06-20T12:00:00Z",
+      "description": "App educativa dirigida a niños de 6 a 15 años para practicar matemáticas e inglés mediante un sistema de dado, vidas y rachas, con distintos modos de juego."
+    },
+    {
+      "project_id": "01a1710a-e200-724f-b266-c9a226d452be",
+      "title": "Series de Taylor",
+      "slug": "series-de-taylor",
+      "short_description": "Visualización de cómo un polinomio de Taylor se aproxima a una función real, hecha para la clase de Cálculo.",
+      "project_date": "2026-05-10",
+      "tags": [
+        "Cálculo",
+        "Proyecto de clase"
+      ],
+      "tech_stack": [
+        {
+          "stack_id": "01a1710a-e201-7bb6-a776-2ab2dc63f6b2",
+          "name": "JavaScript",
+          "category": "LENGUAJE"
+        },
+        {
+          "stack_id": "01a1710a-e201-7396-b158-f7061865071a",
+          "name": "HTML5",
+          "category": "FRAMEWORK"
+        }
+      ],
+      "repo_url": null,
+      "demo_url": "https://serie-de-taylor-one.vercel.app",
+      "is_featured": false,
+      "published_at": "2026-05-10T12:00:00Z",
+      "description": "Actividad de la clase de Cálculo para visualizar, de forma gráfica, cómo un polinomio de Taylor se acerca cada vez más a una función real conforme se agregan términos."
+    }
+  ],
+  "certificados": [
+    {
+      "certificate_id": "01a1710a-e1fd-7388-9f7f-782ae524de1d",
+      "title": "Operating Systems Support",
+      "issuer": "Cisco Networking Academy",
+      "issued_at": "2026-03-16",
+      "pdf_url": "https://santosgonzalez.dev/PDF/OperatingSystemsSupport.pdf",
+      "image_url": "https://santosgonzalez.dev/Imagenes/Certificados/OperatingSystemsSupport.jpg"
+    },
+    {
+      "certificate_id": "01a1710a-e1fd-726f-a026-377f57174a43",
+      "title": "Introduction to Internet of Things",
+      "issuer": "Cisco Networking Academy",
+      "issued_at": "2025-12-01",
+      "pdf_url": "https://santosgonzalez.dev/PDF/InternetOfThings.pdf",
+      "image_url": "https://santosgonzalez.dev/Imagenes/Certificados/InternetOfThings.jpg"
+    },
+    {
+      "certificate_id": "01a1710a-e1fd-7aca-a0a4-7821f5725d4d",
+      "title": "AWS Academy Graduate — Cloud Foundations",
+      "issuer": "Amazon Web Services (AWS)",
+      "issued_at": "2025-10-26",
+      "pdf_url": "https://santosgonzalez.dev/PDF/AWSCloudFoundations.pdf",
+      "image_url": "https://santosgonzalez.dev/Imagenes/Certificados/AWSCloudFoundations.jpg"
+    },
+    {
+      "certificate_id": "01a1710a-e1fd-7372-90ea-6ea3bba5aa12",
+      "title": "Networking Basics",
+      "issuer": "Cisco Networking Academy",
+      "issued_at": "2025-10-26",
+      "pdf_url": "https://santosgonzalez.dev/PDF/NetworkingBasics.pdf",
+      "image_url": "https://santosgonzalez.dev/Imagenes/Certificados/NetworkingBasics.jpg"
+    },
+    {
+      "certificate_id": "01a1710a-e1fd-78fc-9974-e8ca74b0f42c",
+      "title": "Curso Profesional de Desarrollo en C++",
+      "issuer": "Azul School",
+      "issued_at": "2025-10-25",
+      "pdf_url": "https://santosgonzalez.dev/PDF/CursoCpp.pdf",
+      "image_url": "https://santosgonzalez.dev/Imagenes/Certificados/CursoCpp.jpg"
+    }
+  ],
+  "tech_stack": [
+    {
+      "stack_id": "01a1710a-e201-7b57-b463-379b855225e7",
+      "name": "Java",
+      "category": "LENGUAJE",
+      "logo_url": "https://santosgonzalez.dev/Imagenes/Java.png",
+      "show_in_profile": true,
+      "display_order": 1
+    },
+    {
+      "stack_id": "01a1710a-e201-746e-bed6-0db236a8aafa",
+      "name": "C++",
+      "category": "LENGUAJE",
+      "logo_url": "https://santosgonzalez.dev/Imagenes/C++.jpg",
+      "show_in_profile": true,
+      "display_order": 2
+    },
+    {
+      "stack_id": "01a1710a-e201-7bb6-a776-2ab2dc63f6b2",
+      "name": "JavaScript",
+      "category": "LENGUAJE",
+      "logo_url": "https://santosgonzalez.dev/Imagenes/JavaScript.jpg",
+      "show_in_profile": true,
+      "display_order": 3
+    },
+    {
+      "stack_id": "01a1710a-e201-7390-913d-194a157beb06",
+      "name": "CSS",
+      "category": "LENGUAJE",
+      "logo_url": "https://santosgonzalez.dev/Imagenes/Css.jpg",
+      "show_in_profile": true,
+      "display_order": 4
+    },
+    {
+      "stack_id": "01a1710a-e201-7010-875d-c3fe98076d48",
+      "name": "HTML",
+      "category": "LENGUAJE",
+      "logo_url": "https://santosgonzalez.dev/Imagenes/Html.jpg",
+      "show_in_profile": true,
+      "display_order": 5
+    },
+    {
+      "stack_id": "01a1710a-e201-7b7f-89ed-40338fca09e0",
+      "name": "Kotlin",
+      "category": "LENGUAJE",
+      "logo_url": "https://santosgonzalez.dev/Imagenes/Kotlin.png",
+      "show_in_profile": true,
+      "display_order": 6
+    },
+    {
+      "stack_id": "01a1710a-e201-7fcf-bce4-77df1df8ea84",
+      "name": "SQL",
+      "category": "LENGUAJE",
+      "logo_url": null,
+      "show_in_profile": false,
+      "display_order": 7
+    },
+    {
+      "stack_id": "01a1710a-e201-7bd7-a854-ef0abcb4261f",
+      "name": "Figma Site",
+      "category": "HERRAMIENTA",
+      "logo_url": null,
+      "show_in_profile": false,
+      "display_order": 8
+    },
+    {
+      "stack_id": "01a1710a-e201-7740-bc71-e0036fcbe2a7",
+      "name": "AWS (EC2)",
+      "category": "NUBE",
+      "logo_url": null,
+      "show_in_profile": false,
+      "display_order": 9
+    },
+    {
+      "stack_id": "01a1710a-e201-7bae-9ee5-baebe3e2a1a1",
+      "name": "MariaDB",
+      "category": "BASE_DE_DATOS",
+      "logo_url": null,
+      "show_in_profile": false,
+      "display_order": 10
+    },
+    {
+      "stack_id": "01a1710a-e201-720f-a5c1-a1d5b65216f2",
+      "name": "Postman",
+      "category": "HERRAMIENTA",
+      "logo_url": null,
+      "show_in_profile": false,
+      "display_order": 11
+    },
+    {
+      "stack_id": "01a1710a-e201-7d74-b246-fd9d8af9a167",
+      "name": "Android Studio",
+      "category": "HERRAMIENTA",
+      "logo_url": null,
+      "show_in_profile": false,
+      "display_order": 12
+    },
+    {
+      "stack_id": "01a1710a-e201-73e7-b12b-269ebea20176",
+      "name": "Room",
+      "category": "FRAMEWORK",
+      "logo_url": null,
+      "show_in_profile": false,
+      "display_order": 13
+    },
+    {
+      "stack_id": "01a1710a-e201-7200-b9a4-722647750bf8",
+      "name": "SharedPreferences",
+      "category": "FRAMEWORK",
+      "logo_url": null,
+      "show_in_profile": false,
+      "display_order": 14
+    },
+    {
+      "stack_id": "01a1710a-e201-7344-a92b-dfbe9107d59a",
+      "name": "TextToSpeech",
+      "category": "FRAMEWORK",
+      "logo_url": null,
+      "show_in_profile": false,
+      "display_order": 15
+    },
+    {
+      "stack_id": "01a1710a-e201-7396-b158-f7061865071a",
+      "name": "HTML5",
+      "category": "FRAMEWORK",
+      "logo_url": null,
+      "show_in_profile": false,
+      "display_order": 16
+    }
+  ]
+}

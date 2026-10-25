@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% from "_componentes.html" import atributos_cert %}
+{% block cabecera %}
+  <script type="application/ld+json">{{ ld | json_ld }}</script>
+{% endblock %}
+{% block principal %}
+    <section class="masthead">
+      <p class="masthead__eyebrow">Bitácora de desarrollo</p>
+      <h1>Notas breves sobre mis proyectos y lo que aprendo en el camino.</h1>
+      <p class="masthead__lede">Soy {{ perfil.puesto_min }}. Aquí resumo {{ nombres }} y otros proyectos de clase.</p>
+      <div class="masthead__meta">
+        {% if perfil.foto %}
+        <img class="avatar" src="{{ perfil.foto }}" alt="Foto de {{ perfil.nombre }}" width="64" height="64">
+        {% endif %}
+        <div class="masthead__author">
+          <strong class="masthead__name">{{ perfil.nombre }}</strong>
+          <span class="masthead__count">{{ conteo }}</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="filter-bar">
+      <div class="search-field">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="search" id="post-search" placeholder="Buscar artículos…" aria-label="Buscar artículos">
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <div>
+        <ul class="post-list" id="articulos">
+        {% for a in articulos %}
+        <li class="post-row" data-search="{{ a.busqueda }}">
+          <div class="post-row__date"><span class="day">{{ a.dia }}</span>{{ a.mes_corto }} {{ a.anio }}</div>
+          <div>
+            <h2><a href="{{ a.url_pagina }}">{{ a.titulo }}</a></h2>
+            <p class="post-row__excerpt">{{ a.extracto }}</p>
+            <div class="post-row__meta">
+              {% for etiqueta in a.etiquetas %}<span class="tag">{{ etiqueta }}</span>{% endfor %}
+
+              <span>{{ a.minutos }} min de lectura</span>
+            </div>
+            {% if a.demo_url %}
+            <a class="post-row__link" href="{{ a.demo_url }}" target="_blank" rel="noopener noreferrer">{{ ajustes.texto_boton_proyecto }}</a>
+            {% endif %}
+          </div>
+        </li>
+        {% endfor %}
+        </ul>
+        {% if not articulos %}
+        <p class="empty-state">Todavía no hay proyectos publicados.</p>
+        {% endif %}
+        <p class="empty-state" id="empty-state" hidden>No encontré artículos que coincidan con tu búsqueda.</p>
+      </div>
+
+      <aside class="sidebar">
+        <div class="widget widget--author">
+          <h3>Sobre el autor</h3>
+          <p>{{ perfil.lema }}</p>
+          <a class="button-link" href="about.html">Leer más →</a>
+        </div>
+        <div class="widget">
+          <h3>Stack actual</h3>
+          <ul class="stack-list">
+            {% for h in habilidades %}<li>{{ h.nombre }}</li>{% endfor %}
+
+          </ul>
+        </div>
+        <div class="widget">
+          <h3>Certificaciones recientes</h3>
+          <p class="widget-hint">Toca uno para ver el certificado.</p>
+          <ul class="cert-mini-list">{% for c in certificados %}<li><a {{ atributos_cert(c) }}>{{ c.titulo }}<span class="cert-mini-date">{{ c.institucion }} · {{ c.fecha }}</span></a></li>{% endfor %}</ul>
+        </div>
+      </aside>
+    </div>
+{% endblock %}
+{% block modal %}
+{% include "_modal_certificado.html" %}
+{% endblock %}

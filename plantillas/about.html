@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% from "_componentes.html" import atributos_cert %}
+{% block cabecera %}
+  <script type="application/ld+json">{{ ld | json_ld }}</script>
+{% endblock %}
+{% block principal %}
+    <div class="about-hero">
+      {% if perfil.foto %}
+      <img src="{{ perfil.foto }}" alt="Foto de {{ perfil.nombre }}">
+      {% endif %}
+      <div>
+        <h1>{{ perfil.nombre }}</h1>
+        <p>{{ perfil.bio }}</p>
+      </div>
+    </div>
+
+    <section class="section-block">
+      <h2>Lenguajes y herramientas</h2>
+      <div class="skills-grid">{% for h in habilidades %}<div class="skill-card">{% if h.logo %}<img src="{{ h.logo }}" alt="Logo de {{ h.nombre }}" loading="lazy">{% endif %}<p>{{ h.nombre }}</p></div>{% endfor %}</div>
+    </section>
+
+    <section class="section-block">
+      <h2>Certificaciones</h2>
+      <ul class="timeline">{% for c in certificados %}<li><a {{ atributos_cert(c) }}><span class="t-date">{{ c.fecha }}</span><div><h3>{{ c.titulo }}</h3><p>{{ c.institucion }}</p></div><span class="cert-cta" aria-hidden="true">Ver certificado</span></a></li>{% endfor %}</ul>
+    </section>
+
+    <section class="section-block contact-block">
+      <h2>Contacto</h2>
+      <p>¿Quieres platicar sobre alguno de estos proyectos? Puedes contactarme por:</p>
+      <p>Correo: <a class="button-link" href="mailto:{{ perfil.correo }}">{{ perfil.correo }}</a></p>
+      {% if perfil.telefono %}
+      <p>Teléfono: <a class="button-link" href="{{ perfil.tel_href }}">{{ perfil.telefono }}</a></p>
+      {% endif %}
+      {% if perfil.github_url %}
+      <p>GitHub: <a class="button-link" href="{{ perfil.github_url }}" target="_blank" rel="noopener noreferrer">{{ perfil.github_texto }}</a></p>
+      {% endif %}
+    </section>
+{% endblock %}
+{% block modal %}
+{% include "_modal_certificado.html" %}
+{% endblock %}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- Archivo generado por generador/build.py a partir de plantillas/ y del contenido del CMS. No lo edites a mano: edita la plantilla. -->
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ titulo }}</title>
+  <meta name="description" content="{{ descripcion }}">
+  <meta name="author" content="{{ perfil.nombre }}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{ url_canonica }}">
+  <link rel="icon" type="image/svg+xml" href="{{ prefijo }}Imagenes/favicon.svg">
+
+  <meta property="og:type" content="{{ og_tipo }}">
+  <meta property="og:title" content="{{ titulo }}">
+  <meta property="og:description" content="{{ descripcion }}">
+  <meta property="og:url" content="{{ url_canonica }}">
+  <meta property="og:image" content="{{ ajustes.sitio_url }}/Imagenes/favicon.svg">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:site_name" content="{{ ajustes.nombre_sitio }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ titulo }}">
+  <meta name="twitter:description" content="{{ descripcion }}">
+  <meta name="twitter:image" content="{{ ajustes.sitio_url }}/Imagenes/favicon.svg">
+
+  <link rel="stylesheet" href="{{ prefijo }}CSS/{{ css }}">
+  {% block cabecera %}{% endblock %}
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  {% block inicio_cuerpo %}{% endblock %}
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="{{ prefijo }}index.html" class="brand">{{ ajustes.marca }}<span class="brand__sub">{{ ajustes.sufijo }}</span></a>
+      <button class="nav-toggle icon-btn" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <ul class="nav-links" id="nav-links"><li><a href="{{ prefijo }}index.html"{% if pagina == 'inicio' %} aria-current="page"{% endif %}>Inicio</a></li><li><a href="{{ prefijo }}index.html#articulos"{% if pagina == 'articulo' %} aria-current="page"{% endif %}>Artículos</a></li><li><a href="{{ prefijo }}about.html"{% if pagina == 'acerca' %} aria-current="page"{% endif %}>Acerca</a></li></ul>
+    </div>
+  </header>
+
+  <main id="main">
+{% block principal %}{% endblock %}
+  </main>
+
+{% block modal %}{% endblock %}
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© {{ anio }} {{ perfil.nombre }}. Todos los derechos reservados.</p>
+      <nav class="footer-links" aria-label="Enlaces del pie de página">
+        <a href="{{ prefijo }}about.html">Acerca del autor</a>
+        <a href="mailto:{{ perfil.correo }}">Contacto</a>
+        {% if perfil.github_url %}
+        <a href="{{ perfil.github_url }}" target="_blank" rel="noopener noreferrer">GitHub</a>
+        {% endif %}
+      </nav>
+    </div>
+  </footer>
+  <button class="back-to-top" aria-label="Volver arriba"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+  <div class="toast" role="status" aria-live="polite"></div>
+  <script src="{{ prefijo }}JS/{{ js }}"></script>
+</body>
+</html>

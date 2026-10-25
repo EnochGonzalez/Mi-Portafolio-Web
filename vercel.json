@@ -1,0 +1,7 @@
+{
+  "redirects": [
+    { "source": "/HTML/LawPocket.html", "destination": "/proyectos/lawpocket.html", "permanent": true },
+    { "source": "/HTML/MathEnglishQuest.html", "destination": "/proyectos/math-english-quest.html", "permanent": true },
+    { "source": "/HTML/SeriesTaylor.html", "destination": "/proyectos/series-de-taylor.html", "permanent": true }
+  ]
+}

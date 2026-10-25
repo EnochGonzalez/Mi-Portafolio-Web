@@ -1,0 +1,2 @@
+{# Atributos de un enlace a un certificado: el JS (index.js / about.js) los usa para abrir el certificado en pantalla. #}
+{% macro atributos_cert(c) %}class="cert-link" href="{{ c.pdf }}" target="_blank" rel="noopener" data-cert-title="{{ c.titulo }}" data-cert-org="{{ c.institucion }}" data-cert-img="{{ c.imagen }}"{% endmacro %}

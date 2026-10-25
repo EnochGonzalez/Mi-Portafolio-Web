@@ -1,0 +1,4 @@
+# Librerías del generador del blog (mismas que usaste en la práctica: httpx y pytest, más Jinja2 para las plantillas)
+jinja2
+httpx
+pytest
